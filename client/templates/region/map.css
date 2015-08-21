@@ -1,0 +1,17 @@
+.region {
+    border-style: solid;
+    border-width: 1px;
+    height: 100px;
+    width: 150px;
+}
+
+.regions {
+    display: flex;
+    width:500px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.region{
+    flex-grow: 1;
+}

@@ -1,7 +1,10 @@
 <template name="region">
- <div class="region">
-	 <div class="region-content">
-		<span>{{label}}	</span><span>{{conqueror}} </span><span>{{troopsCount}}	</span>
+ <div class="region {{color}}">
+	 <div class="region-content" data-id="{{_id}}">
+		<div>Region name: {{label}}	</div>
+        <div>Region Owner: {{conqueror}} </div>
+        <div>Num of Troops: {{troopsCount}}	</div>
+        <button>Reinforce {{reinforceCount}}</button>
 	 </div>
  </div>
 </template>

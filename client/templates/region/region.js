@@ -1,18 +1,28 @@
 Template.region.helpers({
-/*    conqueror: function(){ 
-		return 'GED';
-	}*/
+    reinforceCount: function(){
+        debugger;
+		return this.reinforceCount;
+	}
 });
 
 
 Template.region.events({
-	"click #btnFire": function(e, template) {
-		var _col = $("#txtCol").val();
-		var _row = $("#txtRow").val();
+	"click button": function(e, template) {
 		try {
-			window.myBattleship.fire(Session.get("playerName"), _col, parseInt(_row, 10));
+            debugger;
+            r = Map.find({_id:template.data._id}).fetch()[0];
+            r.reinforceCount = r.reinforceCount - 1;
+            var region = new Region(r);
+            region.addTroops(1);
+            var player = myRisk.getPlayers()[myRisk.getTurn()];
+            var regions = myRisk.getRegions();
+            for(var i = 0; i<regions.length;i++){
+                var region = regions[i];
+                console.log('r count ' , r.reinforceCount);
+                region.addReinforcedTroopsCount(r.reinforceCount);
+            }
+            player.setAdditionalTroops(player.getAdditionalTroops() - 1);
 		} catch (err) {
-			bootbox.alert("There was a problem firing: " + err.message);
 		}
 	}
 });
