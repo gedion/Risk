@@ -4,7 +4,12 @@
 		<div>Region name: {{label}}	</div>
         <div>Region Owner: {{conqueror}} </div>
         <div>Num of Troops: {{troopsCount}}	</div>
-        <button>Reinforce {{reinforceCount}}</button>
+        {{#if hasAdditionalTroops}}
+            <button>Reinforce {{reinforceCount}}</button>
+        {{/if}}
+        {{#if isAttackableEnemyRegion}}
+            <button>Attack!</button>
+        {{/if}}
 	 </div>
  </div>
 </template>
